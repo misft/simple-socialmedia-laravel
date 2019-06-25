@@ -31,10 +31,16 @@ class HomeController extends Controller
     public function getPosts() {
         $posts = DB::table('posts as p')
             ->join('users as u', 'p.user_id', '=', 'u.id')
-            ->orderByDesc('p.id')
+            ->orderByDesc('p.post_id')
             ->paginate(5);
         $getpostid = DB::table('posts')->get();
         $current = DB::table('users')->where('id', '=', Auth::user()->id)->get();
-        return view('home', ['posts'=>$posts, 'current'=>$current, 'postid'=>$getpostid]);
+        $comments = DB::table('comments as c')->count('c.id');
+        return view('home', [
+            'posts'=>$posts, 
+            'current'=>$current, 
+            'postid'=>$getpostid,
+            'sumc'=>$comments       
+        ]);
     }
 }

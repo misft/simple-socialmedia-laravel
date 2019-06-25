@@ -46,8 +46,8 @@ class ProfileController extends Controller
     }
 
     public function deletePhoto() {
-        $deletePhoto = DB::table('users')->where('display_name', '=','misft')->update(
-            ['picture' => null]
+        $deletePhoto = DB::table('users')->where('name', '=', Auth::user()->name )->update(
+            ['avatar' => null]
         );
         return redirect('myprofile');
     }
