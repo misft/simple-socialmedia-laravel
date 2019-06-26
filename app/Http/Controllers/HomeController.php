@@ -36,11 +36,13 @@ class HomeController extends Controller
         $getpostid = DB::table('posts')->get();
         $current = DB::table('users')->where('id', '=', Auth::user()->id)->get();
         $comments = DB::table('comments as c')->count('c.id');
+        $likes = DB::table('likes')->get();
         return view('home', [
             'posts'=>$posts, 
             'current'=>$current, 
             'postid'=>$getpostid,
-            'sumc'=>$comments       
+            'sumc'=>$comments,   
+            'suml'=>$likes
         ]);
     }
 }

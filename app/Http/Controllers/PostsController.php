@@ -48,8 +48,10 @@ class PostsController extends Controller
     }
 
     public function getImageInfo($id, $url) {
-        $postid = DB::table('posts')->wPere('post_id', '=', $id)->get();
-        return('<img src="'.asset($postid[0]->images).'">');
+        $postid = DB::table('posts')->where('post_id', '=', $id)->get();
+        return(
+            '<img src="'.asset($postid[0]->images).'">'
+        );
     }
     
     public function postComments($post_id, Request $req) {
@@ -58,6 +60,12 @@ class PostsController extends Controller
             'user_id' => Auth::user()->id,
             'comment' => $req -> comment
         ]);
+        return redirect()->back();
+    }
+
+    public function deletePost($post_id) {
+        DB::table('posts')->where('post_id', '=', $post_id)->delete();
+
         return redirect()->back();
     }
 }

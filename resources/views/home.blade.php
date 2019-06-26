@@ -11,11 +11,11 @@
                     <div class="row">
                         <div class="col-2 mt-1">
                             @if ($current[0] -> avatar != null)
-                                <a href="user"><img class="img-1 rounded-circle" src="{{ asset($current[0] -> avatar)}}" class="rounded-circle" alt=""
-                                    srcset=""></a>
+                            <a href="user"><img class="img-1 rounded-circle" src="{{ asset($current[0] -> avatar)}}"
+                                    class="rounded-circle" alt="" srcset=""></a>
                             @else
-                                <a href="myprofile"><img class="img-1" src="../images/profile.png" class="rounded-circle col-"
-                                    alt="" srcset=""></a>
+                            <a href="myprofile"><img class="img-1" src="../images/profile.png"
+                                    class="rounded-circle col-" alt="" srcset=""></a>
                             @endif
                         </div>
                         <div class="col-10">
@@ -37,33 +37,39 @@
                         </div>
                     </div>
                 </form>
-                @foreach ($posts as $i=>$x)
-                <article class="row">
-                    <div class="col-2">
-                        @if ($x -> avatar != null)
-                            <a href="profile/{{$x -> user_id}}"><img src="{{asset($x -> avatar)}}" class="img-1 rounded-circle col-"
-                                alt="" srcset=""></a>
-                        @else
-                            <a href="profile/{{$x -> user_id}}"><img src="../images/profile.png" class="img-1 rounded-circle col-"
-                                alt="" srcset=""></a>
-                        @endif  
-                    </div>
-                    <div class="col-10">
-                        <h5><a class="flow-text" href="post/{{ $x -> post_id }}">{{ $x -> title }}</a></h5>
-                        <p class="flow-text">{{ $x -> message }}</p>
-                        @if ($x->images != null)
-                        <a href="post/{{$x -> post_id}}"><img style="width: 60%; height: auto; object-fit: cover"
-                            src="{{$x -> images}}" alt="" srcset=""></a>
-                        @else
-                        
-                        @endif
-                        {{-- <a href="post/{{$x -> post_id}}" class="btn">
+                <br>
+                <div class="mt-3">
+                    @foreach ($posts as $i=>$x)
+                    <article class="row">
+                        <div class="col-2">
+                            @if ($x -> avatar != null)
+                            <a href="profile/{{$x -> user_id}}"><img src="{{asset($x -> avatar)}}"
+                                    class="img-1 rounded-circle col-" alt="" srcset=""></a>
+                            @else
+                            <a href="profile/{{$x -> user_id}}"><img src="../images/profile.png"
+                                    class="img-1 rounded-circle col-" alt="" srcset=""></a>
+                            @endif
+                        </div>
+                        <div class="col-10">
+                            <h5><a class="flow-text" href="post/{{ $x -> post_id }}">{{ $x -> title }}</a></h5>
+                            <p class="flow-text">{{ $x -> message }}</p>
+                            @if ($x->images != null)
+                            <a href="post/{{$x -> post_id}}"><img style="width: 60%; height: auto; object-fit: cover"
+                                    src="{{$x -> images}}" alt="" srcset=""></a>
+                            @else
+
+                            @endif
+                            {{-- <a href="post/{{$x -> post_id}}" class="btn">
                             <p><i class="material-icons">comment</i></p>
-                        </a> --}}
-                        <p><a class="flow-text" href="profile/{{ $x -> user_id }}">{{ $x -> name}}</a></p>
-                    </div>
-                </article>
-                @endforeach
+                            </a> --}}
+                            <p><a class="flow-text" href="profile/{{ $x -> user_id }}">{{ $x -> name}}</a></p>
+                            @if (Auth::user()->id == $x -> user_id)
+                                <a href="post/delete/{{$x->post_id}}">Delete</a>
+                            @endif
+                        </div>
+                    </article>
+                    @endforeach
+                </div>
         </div>
         {{ $posts -> links() }}
     </div>

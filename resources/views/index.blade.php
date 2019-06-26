@@ -21,16 +21,16 @@
         <a href="#" class="brand-logo"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li id="search-btn"><a href="#search"><i class="material-icons">search</i></a></li>
-            <li><a href="../home">Home</a></li>
-            <li><a href="../myprofile">Profile</a></li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/myprofile">Profile</a></li>
             <li><a href="{{route('logout')}}">Log out</a></li>
         </ul>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
 </nav>
 <ul id="slide-out" class="sidenav">
-    <li><a class="waves-effect" href="../home"><i class="material-icons">home</i>Home</a></li>
-    <li><a class="waves-effect" href="../myprofile"><i class="material-icons">account_circle</i>Profile</a></li>
+    <li><a class="waves-effect" href="/home"><i class="material-icons">home</i>Home</a></li>
+    <li><a class="waves-effect" href="/myprofile"><i class="material-icons">account_circle</i>Profile</a></li>
     <li><a class="fa waves-effect" href="{{ route('logout')}}"><i class="material-icons">exit_to_app</i>Log
             out</a></li>
 </ul>

@@ -26,13 +26,13 @@
                     @if ($ava[0] -> avatar != null)
                         <a href=""><img src="{{asset($ava[0] -> avatar)}}" class="img-1 rounded-circle col-" alt="" srcset=""></a>
                     @else
-                        <a href=""><img src="../images/profile.png" class="img-1 rounded-circle col-" alt="" srcset=""></a>
+                        <a href=""><img src="/images/profile.png" class="img-1 rounded-circle col-" alt="" srcset=""></a>
                     @endif
                 </div>
                 <div class="col-8">
-                    <h5><a href="../post/{{$i -> post_id}}">{{ $i -> title }}</a></h5>
+                    <h5><a href="/post/{{$i -> post_id}}">{{ $i -> title }}</a></h5>
                     <p>{{ $i -> message }}</p>
-                    <a href="../post/{{$i -> post_id}}"><img src="{{asset($i -> images)}}" alt=""></a>
+                    <a href="/post/{{$i -> post_id}}"><img src="{{asset($i -> images)}}" alt=""></a>
                 </div>
             </div>
             @endforeach

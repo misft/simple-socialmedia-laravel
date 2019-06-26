@@ -30,4 +30,7 @@ Route::post('home/post', 'PostsController@postPost');
 Route::get('post/{id}', 'PostsController@loadPost');
 Route::get('post/{id}/images//{url}', 'PostsController@getImageInfo');
 
-Route::post('post/{post_id}/commentpost', 'PostsController@postComments');  
+Route::post('post/{post_id}/commentpost', 'PostsController@postComments'); 
+
+Route::get('post/delete/{post_id}', 'PostsController@deletePost');
+Route::get('home/edit/{post_id}', 'PostsController@editPost');

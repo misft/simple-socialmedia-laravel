@@ -2,7 +2,7 @@
 @section('konten')
 
 <body>
-    <div class="col" style="padding: 0">
+    <div class="container-fluid" style="padding: 0">
         <div class="jumbotron blue lighten-1">
             <div class="col s12 m6">
                 <div class="blue lighten-1">
@@ -12,14 +12,11 @@
                                 src="{{ asset($me[0] -> avatar) }}" class="rounded-circle img-2 col-" alt="" srcset=""></a>
                         @else
                         <a class="d-flex justify-content-center modal-trigger" href="#modal1"><img
-                                src="../images/profile.png" class="rounded-circle img-2 col-" alt="" srcset=""></a>
+                                src="/images/profile.png" class="rounded-circle img-2 col-" alt="" srcset=""></a>
                         @endif
 
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal bottom-sheet">
-                            <input type="submit"
-                                class="modal-content waves-effect waves-blue btn-flat justify-content-center"
-                                value="Lihat Foto">
                             <form id="form" action="myprofile/uploadphoto" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="button" id="file-trigger"
@@ -52,7 +49,7 @@
                 @if ($me[0] -> avatar != null)
                 <img class="circle img-1" src="{{ asset($me[0] -> avatar) }}">
                 @else
-                <img class="circle img-1" src="../images/profile.png">
+                <img class="circle img-1" src="/images/profile.png">
                 @endif
 
                 <div class="col">
